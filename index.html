@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chicken Road</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="top">
+        <img class="left_chicken" src="./images/chicken-lb.png" alt="chicken" />
+        <img
+          class="left_t_chicken"
+          src="./images/chicken-lt.png"
+          alt="chicken"
+        />
+        <img
+          class="right_chicken"
+          src="./images/chicken-rb.png"
+          alt="chicken"
+        />
+        <img
+          class="right_t_chicken"
+          src="./images/chicken-rt.png"
+          alt="chicken"
+        />
+        <div class="content">
+          <div class="titleWrap">
+            <h1>PICK UP YOUR<br />WELCOME BONUS</h1>
+          </div>
+          <p>
+            250% up to $4,000 <br />
+            + 150 Free Spins
+          </p>
+        </div>
+        <div class="btn-container btn-container-desktop">
+          <a href="#" class="btn" data-redirect="/register">Play Now</a>
+        </div>
+        <!-- TODO: update to ul -->
+      </div>
+      <div class="bottom">
+        <div class="itemsWrap">
+          <div class="itemWrap">
+            <img src="./images/1.svg" alt="1 step" />
+            <div>
+              <p class="title">RegIster</p>
+              <p class="description">
+                Create your account in just a few clicks!
+              </p>
+            </div>
+          </div>
+          <div class="itemWrap">
+            <img src="./images/2.svg" alt="2 step" />
+            <div>
+              <p class="title">DeposIt</p>
+              <p class="description">
+                Choose from a variety of secure, free payment methods.
+              </p>
+            </div>
+          </div>
+          <div class="itemWrap">
+            <img src="./images/3.svg" alt="3 step" />
+            <div>
+              <p class="title">Play game</p>
+              <p class="description">
+                Enjoy our huge selection of slots or visit the live casino!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="paymentsWrap">
+          <img height="80" src="./images/visa.svg" alt="visa" />
+          <img height="80" src="./images/mastercard.svg" alt="mastercard" />
+          <img height="80" src="./images/banking.svg" alt="banking" />
+          <img height="80" src="./images/crypto.svg" alt="crypto" />
+        </div>
+      </div>
+    </div>
+    <img class="body-bottom-coin-left" src="./images/coins-l.png" alt="coin" />
+    <img class="body-bottom-coin-right" src="./images/coins-r.png" alt="coin" />
+    <div class="body-bottom-coin-mobile">
+      <img src="./images/coins-mb.png" alt="coin" />
+    </div>
+  </body>
+  <script>
+    const domain = "https://chickenroademeraldcity.com";
+
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+      const regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+      const results = regex.exec(window.location.search);
+      return results === null
+        ? ""
+        : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+
+    window.addEventListener("load", function () {
+      const gclid = getUrlParameter("gclid");
+
+      const currentPath = window.location.pathname;
+      const url = new URL(domain + currentPath);
+      if (gclid) {
+        url.searchParams.set("gclid", gclid);
+      }
+
+      const handleClick = () => {
+        window.removeEventListener("click", handleClick);
+        if (gclid) {
+          window.location.href = `${domain}/prev/index.html?gclid=${gclid}`;
+        } else {
+          window.location.href = `${domain}`;
+        }
+      };
+
+      window.addEventListener("click", handleClick);
+    });
+  </script>
+</html>
