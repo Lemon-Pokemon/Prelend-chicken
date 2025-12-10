@@ -355,7 +355,7 @@ body {
   }
 
   .paymentsWrap {
-    padding: 14px 0 0;
+    padding: 14px 0 35px;
   }
 
   .body-bottom-coin-mobile {
@@ -477,12 +477,13 @@ body {
 
   .top {
     flex-shrink: 0;
-    height: calc(100vh - 50px);
+    height: calc(100vh - 150px);
   }
 
   .bottom {
     display: flex;
     flex-direction: column-reverse;
+    gap: 50px;
   }
 
   .buttonWrap {
